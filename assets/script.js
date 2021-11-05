@@ -1,4 +1,4 @@
-// Assignment code here
+// Variables
 var passLength = 0;
 var passCase = "";
 var passCaseLower = "abcdefghijklmnopqrstuvwxyz"
@@ -8,6 +8,8 @@ var passSpecial = "!@#$%^&*()"
 var passSpecNum = "";
 var parameter = "";
 
+
+//  Function and while loop to set password length parameters
 function passwordLength() {
   while(passLength < 8 || passLength > 128 || (passLength%1)!=0){
     passLength = window.prompt ("How long do you want your password?  It cannot be longer than 128 characters.  Minimum of 8 characters.");
@@ -16,6 +18,7 @@ function passwordLength() {
   
 }
 
+//  Function and switch statement to set case type
 function passwordCase() {
   passCase = window.prompt ("Would you like to include UPPER case, LOWER case, or BOTH?");
   
@@ -41,6 +44,7 @@ function passwordCase() {
   console.log(parameter);
 }
 
+//Function and switch statement to set character type
 function passwordSpecNum() {
   passSpecNum = window.prompt ("Would you like to include NUMBERS, SPECIAL characters, or BOTH?");
   
@@ -66,7 +70,7 @@ function passwordSpecNum() {
 
 }
 
-
+//Function and for statement to randomize password
 function getPass() {
   
   var password = "";
@@ -80,6 +84,8 @@ function getPass() {
     return password;
 }
 
+
+// Function to generate password
 function generatePassword() {
 
   passwordLength();
@@ -89,8 +95,6 @@ function generatePassword() {
   passLength = 0;
   return result;
 }
-
-
 
 
 // Get references to the #generate element
@@ -104,8 +108,6 @@ function writePassword() {
   passwordText.value = password;
 
 }
-
-
 
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
