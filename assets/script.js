@@ -15,21 +15,29 @@ function passwordCase() {
   passCase = window.prompt ("Would you like to include UPPER case, LOWER case, or BOTH?");
   switch(passCase){
     case"UPPER": 
+    generatePassword(upper); 
     break;
     case"upper":
+    generatePassword(upper);
     break;
     case"LOWER":
+    generatePassword(lower); 
     break;
     case"lower":
+    generatePassword(lower);
     break;
     case"BOTH":
+    generatePassword(both); 
     break;
     case"both":
+    generatePassword(both);
     break;
 
     default:
+      console.log(`You didn't pick one of the options.  Please pick a valid option.`);
       passwordCase();
   }
+  console.log(passCase);
 }
 
 function passwordSpecNum() {
@@ -49,17 +57,35 @@ function passwordSpecNum() {
     break;
 
     default:
+      console.log(`You didn't pick one of the options.  Please pick a valid option.`);
       passwordSpecNum();
   }
   console.log(passSpecNum);
+
 }
 
-function generatePassword() {
+
+
+
+function generatePassword(casetype) {
+
+  function getPass(parameter) {
+    for (i=0; i < passwordLength; i++){
+      var newPass = Math.floor(Math.random() * (parameter.length +1));
+      password = password + parameter.charAt(newPass);
+    }
+    password.reset();
+    return password;
+  }
+
+  if (casetype == 'upper') {
+    getPass(paramsUpper); // here we will pass our list of accepted upper case characters, ideally as a variable we set elsewhere
+  }  
   passwordLength();
   passwordCase();
   passwordSpecNum();
+  
 }
-
 
 
 
