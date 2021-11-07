@@ -2,7 +2,7 @@
 
 ## Purpose
 
-A website disigned to generate a random password.
+A website designed to generate a random password.
 
 ## Built With
 
